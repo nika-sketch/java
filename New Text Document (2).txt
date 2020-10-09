@@ -1,0 +1,59 @@
+import acm.program.*;
+import acmx.export.java.util.Scanner;
+
+
+public class Problem15 extends ConsoleProgram {
+
+	private int a;
+	private int b;
+	private int c;
+	private int result;
+	private int sum;
+	private int otherResult;
+
+	
+	public void run() {
+//		method1();
+		method2();
+    	method3();
+ 	    result = method2() * method3();
+ 	    println("Multiply of those numbers are: " + result);
+ 	    method4();
+ 	    otherResult = method3() * result;
+ 	    println(otherResult);
+	}
+//	
+//	private void method1() {
+//		 a = readInt("First number: ");
+//		 b = readInt("Second number: ");
+//		 c = readInt("Third number: ");
+//	}
+	
+	private int method2() {
+		a = readInt("Type first number: ");
+		int lastDigit = a % 10;
+		println("The last digit of " + a + " is: " + lastDigit);
+		return lastDigit;
+	}
+	
+	private int method3() {
+		b = readInt("Type second number: ");
+		int firstDigit = 1;
+		for (int i = 10; i < b; i = i * 10) {
+		    firstDigit = b / i;
+		}
+		
+		println("The first digit of number" + b + " is: " + firstDigit);
+		return firstDigit;
+	}
+	
+	private void method4() {
+		c = readInt("Type third number : ");
+		int sum = 0;
+		while (c > 0) {
+			sum = sum + c % 10;
+			c = c / 10;
+		}
+		println("The sum of digits: " + sum);
+	}
+}
